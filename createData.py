@@ -16,14 +16,15 @@ def generate_users(num_users, users_file_path):
             wr.writerow(user_item)
             i = i + 1
 
-def generate_pages(num_pages, pages_file_path):
+def generate_pages(num_pages, node_type, pages_file_path):
     with open(pages_file_path, 'wb') as csv_file:
         wr = csv.writer(csv_file)
-        wr.writerow(("page_id"))
+        wr.writerow(('page_id', 'node_type'))
         i = 1
-        while i in range (1, num_users):
+        while i in range (1, num_users + 1):
             page_item = []
             page_item.append(i)
+            page_item.append(node_type)
             wr.writerow(page_item)
             i = i + 1
 
@@ -51,10 +52,11 @@ def generate_connections(num_users, num_pages, max_edges, edges_file_path):
 
 
 
-num_users = 1000
-num_pages = 100000
-max_edges = 20
+num_users = 10
+num_pages = 100
+max_edges = 10
+node_type = 'article'
 
-generate_users(num_users, '/home/sheldon/python_users.csv')
-generate_pages(num_pages, '/home/sheldon/python_pages.csv')
-generate_connections(num_users, num_pages, max_edges, '/home/sheldon/python_connections.csv')
+generate_users(num_users, '/Users/skregerx/data/python_users.csv')
+generate_pages(num_pages, node_type, '/Users/skregerx/data/python_pages.csv')
+generate_connections(num_users, num_pages, max_edges, '/Users/skregerx/data/python_connections.csv')
