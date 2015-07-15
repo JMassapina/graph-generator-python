@@ -21,7 +21,7 @@ def generate_pages(num_pages, node_type, pages_file_path):
         wr = csv.writer(csv_file)
         wr.writerow(('page_id', 'node_type'))
         i = 1
-        while i in range (1, num_users + 1):
+        while i in range (1, num_pages + 1):
             page_item = []
             page_item.append(i)
             page_item.append(node_type)
